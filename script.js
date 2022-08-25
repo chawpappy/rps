@@ -73,7 +73,7 @@ let end = game()
 function game(){
     let wins=0;
     let losses=0;
-        for (let i=0; i<5; i = wins+losses){
+        for (let i=0; i<5&&wins<3&&losses<3; i = wins+losses){
             let selection = getPlayerChoice();
             let oppo = getComputerChoice()
             let result=playRound(oppo,selection);
