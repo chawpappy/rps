@@ -9,23 +9,17 @@ function getComputerChoice() {
         return "scissors"
     }    
 }
-function getPlayerChoice(){
-    let pick = prompt ("Rock, Paper, or Scissors?",);
-    let npick = pick.toLowerCase();
-    if (npick === "rock" ){
-        return "rock"
-    } else if (npick === "paper") {
-        return "paper"
-    } else if (npick ==="scissors") {
-        return "scissors"
-    } else {
-        return "INVALID"
-    }    
-}
-//let computerSelection = getComputerChoice()
-//let playerSelection = getPlayerChoice()
-//console.log (computerSelection)
-//console.log (playerSelection)
+const vara = document.querySelector('#response');
+const buttons = document.querySelector('#buttons');
+let playerSelection = 0;
+let wins=0;
+let losses=0;
+buttons.addEventListener('click',function(e) {playerSelection = (`${e.target.id}`); 
+ console.log (playerSelection);
+ game(playerSelection);
+});
+
+
 function playRound (computerSelection,playerSelection){
     switch (playerSelection){
         case "rock" :
@@ -35,7 +29,7 @@ function playRound (computerSelection,playerSelection){
                 
                 case "paper" :
                 return "LOSE, your opponent's paper covers your rock"
-                
+                                
                 default :
                 return "WIN, you smash your opponent's scissors!"
             }
@@ -65,24 +59,26 @@ function playRound (computerSelection,playerSelection){
             }
             
         default :
-            return "INVALID RESPONSE, TRY AGAIN"
-    }
+        }
 }
-let end = game()
 
-function game(){
-    let wins=0;
-    let losses=0;
+
+function game(playerSelection){
+
         for (let i=0; i<5&&wins<3&&losses<3; i = wins+losses){
-            let selection = getPlayerChoice();
+            let selection = playerSelection;
             let oppo = getComputerChoice()
-            let result=playRound(oppo,selection);
-            let test= result.charAt(0);
+            let result = playRound(oppo,selection);
+            let test = result.charAt();
             test === "W"? wins += 1 : null;
             test === "L"? losses += 1 : null;
-            console.log ("Your opponent chose "+ oppo+", You chose "+selection+". Resulting in: "+result+" W:"+wins+" L:"+losses )
+            vara.textContent = ("Your opponent chose "+ oppo+", You chose "+selection+". Resulting in: "+result+" W:"+wins+" L:"+losses );
+            console.log(wins);
+            console.log(losses);
+            playerSelection = " ";
+    
         }
     if (wins>losses) {
-        console.log("YOU WIN!!!! "+wins+" winning rounds and "+losses+" losing rounds")
-    } else {console.log("YOU LOSE!!!! "+wins+" winning rounds and "+losses+" losing rounds")}
+        vara.textContent = ("YOU WIN!!!! "+wins+" winning rounds and "+losses+" losing rounds")
+    } else {vara.textContent = ("YOU LOSE!!!! "+wins+" winning rounds and "+losses+" losing rounds")}
    }
