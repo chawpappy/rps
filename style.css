@@ -22,8 +22,7 @@ body {
     justify-content: center;
     text-align: center;
     color: rgb(255, 255, 255);
-    margin: 50px;
-}
+ }
 
 #reset {
     height: 12px;
@@ -56,4 +55,16 @@ li {
     display:flex;
     justify-content: space-evenly;
     align-items: center;
+    font-size: 15px;
+}
+
+#tally {
+    display:flex;
+    flex-wrap: nowrap;
+}
+
+#wins #loss {
+    display:flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
 }

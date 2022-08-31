@@ -88,6 +88,13 @@ function game(playerSelection){
             roundNum.textContent = rounds;
         }
     if (wins>losses) {
-        vara.innerHTML = `<li> YOU WIN!!!! ${wins} winning rounds and ${losses} losing rounds</li>`
-    } else {vara.innerHTML = `<li> YOU LOSE!!!! ${wins} winning rounds and ${losses} losing rounds </li> `}
+        let v1 = document.createElement("li")
+        v1.innerText = `YOU WIN!!!! ${wins} winning rounds and ${losses} losing rounds` ;
+        document.getElementById("result").appendChild(v1);
+             //vara.innerHTML = `<li> YOU WIN!!!! ${wins} winning rounds and ${losses} losing rounds</li>`
+    } else {//vara.innerHTML = `<li> YOU LOSE!!!! ${wins} winning rounds and ${losses} losing rounds </li> `} 
+        let v1 = document.createElement("li")
+        v1.innerText = `YOU LOSE!!!! ${wins} winning rounds and ${losses} losing rounds` ;
+        document.getElementById("result").appendChild(v1);
+    }
    }
