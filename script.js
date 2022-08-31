@@ -9,7 +9,8 @@ function getComputerChoice() {
         return "scissors"
     }    
 }
-const vara = document.querySelector('#response');
+const reset = document.querySelector('#reset');
+const vara = document.querySelector('#result');
 const buttons = document.querySelector('#buttons');
 let playerSelection = 0;
 let wins=0;
@@ -18,6 +19,7 @@ buttons.addEventListener('click',function(e) {playerSelection = (`${e.target.id}
  console.log (playerSelection);
  game(playerSelection);
 });
+reset.addEventListener('click', () => location.reload());
 
 
 function playRound (computerSelection,playerSelection){
