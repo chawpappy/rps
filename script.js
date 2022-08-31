@@ -15,6 +15,10 @@ const buttons = document.querySelector('#buttons');
 let playerSelection = 0;
 let wins=0;
 let losses=0;
+let rounds = 0;
+const winNum = document.querySelector('#winNum');
+const losNum = document.querySelector('#losNum');
+const roundNum = document.querySelector('#roundNum');
 buttons.addEventListener('click',function(e) {playerSelection = (`${e.target.id}`); 
  console.log (playerSelection);
  game(playerSelection);
@@ -74,13 +78,16 @@ function game(playerSelection){
             let test = result.charAt();
             test === "W"? wins += 1 : null;
             test === "L"? losses += 1 : null;
-            vara.textContent = ("Your opponent chose "+ oppo+", You chose "+selection+". Resulting in: "+result+" W:"+wins+" L:"+losses );
-            console.log(wins);
-            console.log(losses);
+            let v1 = document.createElement("li")
+            v1.innerText = `Your opponent chose ${oppo}, You chose ${selection}. ${result}` ;
+            document.getElementById("result").appendChild(v1);
             playerSelection = " ";
-    
+            rounds++;    
+            winNum.textContent = wins;
+            losNum.textContent = losses;
+            roundNum.textContent = rounds;
         }
     if (wins>losses) {
-        vara.textContent = ("YOU WIN!!!! "+wins+" winning rounds and "+losses+" losing rounds")
-    } else {vara.textContent = ("YOU LOSE!!!! "+wins+" winning rounds and "+losses+" losing rounds")}
+        vara.innerHTML = `<li> YOU WIN!!!! ${wins} winning rounds and ${losses} losing rounds</li>`
+    } else {vara.innerHTML = `<li> YOU LOSE!!!! ${wins} winning rounds and ${losses} losing rounds </li> `}
    }
